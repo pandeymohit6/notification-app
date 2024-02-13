@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/createUser',function(){
+Route::get('/createUser', function () {
     Artisan::call('db:seed');
     return redirect()->route('users.index')->with('success', 'User created successfully');
 })->name('createusers');
