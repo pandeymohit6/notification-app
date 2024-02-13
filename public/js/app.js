@@ -5074,18 +5074,18 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_toggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-toggle/js/bootstrap-toggle.js */ "./node_modules/bootstrap-toggle/js/bootstrap-toggle.js");
-/* harmony import */ var bootstrap_toggle__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_toggle__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-dt/js/dataTables.dataTables.js */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
-/* harmony import */ var datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net-dt/js/dataTables.dataTables.js */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(datatables_net_dt_js_dataTables_dataTables_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap_toggle_js_bootstrap_toggle_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-toggle */ "./node_modules/bootstrap-toggle/js/bootstrap-toggle.js");
+/* harmony import */ var bootstrap_toggle_js_bootstrap_toggle_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_toggle_js_bootstrap_toggle_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var datatables_net_dt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-dt */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.mjs");
 
 
 
 
 
-var table = new datatables_net_dt__WEBPACK_IMPORTED_MODULE_3__["default"]('.table', {
-  // config options...
+var table = new datatables_net_dt__WEBPACK_IMPORTED_MODULE_3__["default"](".table", {
+  "pageLength": 100
 });
 $(function () {
   $(".toggle-class").change(function () {
@@ -5106,6 +5106,7 @@ $(function () {
   });
 });
 function callMobileApi() {
+  $("#overlay").fadeIn(300);
   var inputString = $("#phone").prop("value"); //for api url not using contant but we can use
   fetch("https://phonevalidation.abstractapi.com/v1/?api_key=78200083dce04b978aa43aad0b435b0c&phone=" + inputString, {
     headers: {
@@ -5115,9 +5116,16 @@ function callMobileApi() {
     return res.json();
   }).then(function (response) {
     $(".verify").text(response.valid == true ? "Valid Number" : "Invalid Number");
+    $(".verify").css("coloe", 'red');
+    setTimeout(function () {
+      $("#overlay").fadeOut(300);
+    }, 500);
   })["catch"](function (err) {
     console.log("u");
     alert("sorry, there are no results for your search");
+    setTimeout(function () {
+      $("#overlay").fadeOut(300);
+    }, 500);
   });
 }
 $("#navbarDropdownMenuLink").click(function () {

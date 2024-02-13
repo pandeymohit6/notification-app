@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,9 +71,12 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     @forelse(auth()->user()->unreadNotifications as $notify)
                                     <li>
-                                        <a @if(!$notify->read_at) href="{{route('notification.read', $notify->id)}}" @endif class="list-group-item @if($notify->read_at) read @else unread @endif ">
-                                            <p><b>{{$notify['data']['notification_type']}}</b> {{$notify['data']['content']}}</p>
-                                            <p><small>{{ $notify->created_at->diffForHumans() }}</small></p>
+                                        <a class="dropdown-item dropdown-notification @if($notify->read_at) read @else unread @endif" @if(!$notify->read_at) href="{{route('notification.read', $notify->id)}}" @endif>
+                                            <div class="notifications-body">
+                                                <p class="notification-texte"><b>{{$notify['data']['notification_type']}}</b><br> {{$notify['data']['content']}}</p>
+                                                <p><small>{{ $notify->created_at->diffForHumans() }}</small></p>
+
+                                            </div>
                                         </a>
                                     </li>
                                     @empty

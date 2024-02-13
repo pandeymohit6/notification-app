@@ -1,12 +1,11 @@
 import "./bootstrap";
-import "bootstrap-toggle";
 import "datatables.net-dt/js/dataTables.dataTables.js";
 import "bootstrap-toggle/js/bootstrap-toggle.js";
-
+import "bootstrap-toggle";
 import DataTable from "datatables.net-dt";
 
 let table = new DataTable(".table", {
-    // config options...
+    "pageLength": 100
 });
 $(function () {
     $(".toggle-class").change(function () {
@@ -29,6 +28,7 @@ $(function () {
 });
 
 function callMobileApi() {
+    $("#overlay").fadeIn(300);
     const inputString = $("#phone").prop("value"); //for api url not using contant but we can use
     fetch(
         "https://phonevalidation.abstractapi.com/v1/?api_key=78200083dce04b978aa43aad0b435b0c&phone=" +
@@ -44,10 +44,17 @@ function callMobileApi() {
             $(".verify").text(
                 response.valid == true ? "Valid Number" : "Invalid Number"
             );
+            $(".verify").css("coloe",'red');
+            setTimeout(function () {
+                $("#overlay").fadeOut(300);
+            }, 500);
         })
         .catch((err) => {
             console.log("u");
             alert("sorry, there are no results for your search");
+            setTimeout(function () {
+                $("#overlay").fadeOut(300);
+            }, 500);
         });
 }
 

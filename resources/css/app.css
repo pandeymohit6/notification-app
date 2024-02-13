@@ -1,7 +1,7 @@
-@import '~bootstrap';
-@import '~mdb-ui-kit/css/mdb.min.css';
-@import 'bootstrap-toggle/css/bootstrap-toggle.min.css';
-@import 'datatables.net-dt/css/jquery.dataTables.min.css';
+@import "~bootstrap";
+@import "~mdb-ui-kit/css/mdb.min.css";
+@import "bootstrap-toggle/css/bootstrap-toggle.min.css";
+@import "datatables.net-dt/css/jquery.dataTables.min.css";
 .switch-field {
     display: flex;
     margin-bottom: 36px;
@@ -303,4 +303,111 @@ body {
 }
 .toggle-off.btn-xs {
     padding-left: 12px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+}
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px #ddd solid;
+    border-top: 4px #2e93e6 solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.is-hide {
+    display: none;
+}
+
+.dropdown-item.dropdown-notification:active,
+.dropdown-item.dropdown-notification.active {
+    color: #1d1e1f;
+    text-decoration: none;
+    background-color: #f7f7f9;
+}
+
+.dropdown-notification:hover .notification-read {
+    color: #34495e;
+}
+
+.dropdown-notification-all {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-style: oblique;
+    background-color: #34495e;
+    color: white;
+}
+
+.dropdown-notification-all:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+.notifications-container {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.notification-dropdown-menu {
+    padding-bottom: 0;
+    min-width: 528px;
+}
+
+.notification-img {
+    width: 48px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.notifications-body {
+    display: inline-block;
+}
+
+.notification-texte {
+    text-align: left;
+    margin: 0;
+}
+
+.notification-read {
+    margin: 0;
+    height: 48px;
+    vertical-align: top;
+    line-height: 48px;
+    padding-left: 15px;
+    color: white;
+    float: right;
+}
+
+.notification-date {
+    text-align: left;
+    color: #2980b9;
+    margin: 0;
+}
+
+.notification-solo {
+    margin-top: 1rem;
+}
+
+.notification-unread {
+    text-decoration: none;
+    background-color: #f7f7f9;
 }

@@ -7,6 +7,7 @@
         <div class="card">
             <div class="card-header">User Name: {{ $user->name }}</div>
             <div class="card-body">
+                
                 <form method="POST" action="{{ route('users.update',$user->id) }}">
                     @csrf
                     @method('PUT')
