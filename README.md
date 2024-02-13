@@ -2,7 +2,6 @@
 
 About : Notification pannel is developed on laravel with Mysql, here we can manage User and Notification. we can send notification manuualy to single user or groups of user , a mobile verification api implemneted to check the valid number,
 
-
 ## Lib
 
 -   Laravel 8.x
@@ -21,6 +20,11 @@ About : Notification pannel is developed on laravel with Mysql, here we can mana
 7. From the projects root folder run `php artisan migrate`
 8. From the projects root folder run `php artisan db:seed`
 9. From the projects root folder run `composer dump-autoload`
+
+## Step 2 for css and js mix file
+
+npm install
+npm run dev ---development
 
 ### Folder Ownership and Permission
 
