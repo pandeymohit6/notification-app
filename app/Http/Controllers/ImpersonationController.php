@@ -35,8 +35,6 @@ class ImpersonationController extends Controller
 
     public function stopImpersonating()
     {
-        Auth::logout();
-        Auth::loginUsingId(session('original_user_id'));
         session()->forget('original_user_id');
         session()->flush();
         return redirect()->route('users.index');

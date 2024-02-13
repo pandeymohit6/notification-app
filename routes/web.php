@@ -28,9 +28,9 @@ Route::get('/createUser', function () {
 
 
 Route::controller(ImpersonationController::class)->group(function () {
-    Route::get('/dashboard', 'dashboard')->name('home')->middleware('impersonate');
-    Route::get('/impersonate/{user}', 'impersonate')->name('impersonate')->middleware('impersonate');
-    Route::get('/stop-impersonating', 'stopImpersonating')->name('stop-impersonating')->middleware('impersonate');
+    Route::get('/dashboard', 'dashboard')->name('home')->middleware('auth');
+    Route::get('/impersonate/{user}', 'impersonate')->name('impersonate');
+    Route::get('/stop-impersonating', 'stopImpersonating')->name('stop-impersonating');
 });
 Route::resource('users', UserController::class)->middleware('guest');
 Route::controller(NotificationController::class)->group(function () {
