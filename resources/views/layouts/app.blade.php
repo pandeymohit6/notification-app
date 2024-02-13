@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RN2 Task</title>
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
     <link href="{{ mix('/css/app.css') }}" rel='stylesheet'>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -95,59 +91,7 @@
     <div class="container">
         @yield('content')
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js"></script>
-    <script href="{{ mix('/js/app.js') }}"></script>
-    <script>
-        $(function() {
-            $('.toggle-class').change(function() {
-                var status = $(this).prop('checked') == true ? 1 : 0;
-                var user_id = $(this).data('id');
-
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: '/notifications/changeStatus',
-                    data: {
-                        'status': status,
-                        'user_id': user_id
-                    },
-                    success: function(data) {
-                        $('#msg').text(data.success).show()
-                    }
-                });
-            })
-        })
-
-        $("#navbarDropdownMenuLink").click(function() {
-            $(".dropdown-menu-end").toggle();
-        });
-    </script>
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    <script>
-        $(function() {
-            $(".table").dataTable();
-        })
-
-        function callMobileApi() {
-            const inputString = $("#phone").prop('value'); //for api url not using contant but we can use
-            fetch('https://phonevalidation.abstractapi.com/v1/?api_key=78200083dce04b978aa43aad0b435b0c&phone=' + inputString, {
-                    headers: {
-                        "Content-Type": "application/json; charset=utf-8"
-                    }
-                })
-                .then(res => res.json())
-                .then(response => {
-                    $('.verify').text((response.valid == true) ? 'Valid Number' : 'Invalid Number');
-                })
-                .catch(err => {
-                    console.log("u")
-                    alert("sorry, there are no results for your search")
-                });
-        }
-    </script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 
 </html>
