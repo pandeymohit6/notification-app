@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\TwilioSMS;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -36,12 +37,13 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, TwilioSMS $sendSms)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
         ]);
+        // $sendSms->send();
         $user->update($request->all());
         return redirect()->route('users.index')->with('success', 'User updated successfully');
     }

@@ -1,4 +1,7 @@
 @import '~bootstrap';
+@import '~mdb-ui-kit/css/mdb.min.css';
+@import 'bootstrap-toggle/css/bootstrap-toggle.min.css';
+@import 'datatables.net-dt/css/jquery.dataTables.min.css';
 .switch-field {
     display: flex;
     margin-bottom: 36px;
