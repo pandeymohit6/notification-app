@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNotificationRequest;
 use App\Models\Notification as NotificationModel;
 use App\Models\User;
 use App\Notifications\SendNotifyToUser;
@@ -31,14 +32,9 @@ class NotificationController extends Controller
         return view('notifications.create', compact('userlist', 'notifyType'));
     }
 
-    public function sendNotification(Request $req)
+    public function sendNotification(StoreNotificationRequest $req)
     {
         try {
-            $req->validate([
-                'notification_type' => 'required',
-                'content' => 'required|max:200',
-                'user_ids' => 'required',
-            ]);
             $usewrSchema = User::whereIn('id', $req->user_ids)->where('notification', 1)->get();
             $offerData = [
                 'notification_type' => $req->notification_type,

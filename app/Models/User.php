@@ -47,18 +47,14 @@ class User extends Authenticatable
 
 
 
-    // public function setImpersonating($id)
-    // {
-    //     Session::put('impersonate', $id);
-    // }
-
-    // public function stopImpersonating()
-    // {
-    //     Session::forget('impersonate');
-    // }
-
-    // public function isImpersonating()
-    // {
-    //     return Session::has('impersonate');
-    // }
+    /**
+     * Name of columns to which http sorting can be applied
+     *
+     * @var array
+     */
+    protected $allowedSorts = [
+        'name',
+        'created_at',
+        'updated_at'
+    ];
 }

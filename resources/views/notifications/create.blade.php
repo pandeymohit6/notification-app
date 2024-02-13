@@ -5,7 +5,7 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header">Notification</div>
+            <div class="card-header"><b>Notification</b></div>
             <div class="card-body">
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success">
@@ -38,12 +38,12 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Sort Test:</strong>
+                                <strong>Content:</strong>
                                 <input type="text" name="content" value="{{old('content')}}" class="form-control">
                                 @error('content')
-                                <div class="alert alert-danger" role="alert">
+                                <span class="alert alert-danger" role="alert">
                                     {{ $message }}
-                                </div>
+                                </span>
                                 @enderror
                             </div>
                         </div>

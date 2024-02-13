@@ -29,10 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    'messagebird' => [
-        'access_key' => env('MESSAGEBIRD_ACCESS_KEY'),
-        'originator' => env('MESSAGEBIRD_ORIGINATOR'),
-        'recipients' => env('MESSAGEBIRD_RECIPIENTS'),
+    'twilio' => [
+        'TWILIO_SID' => env('TWILIO_SID'),
+        'TWILIO_TOKEN' => env('TWILIO_TOKEN'),
+        'TWILIO_VERIFY_SID' => env('TWILIO_VERIFY_SID'),
     ],
 
 ];
