@@ -1,19 +1,33 @@
-some points here to run this project on local
+## Livewire Admin Panel
 
-1. clone the Repo or download zip
-2. composer install
-3. npm i
-4. npm run dev
-5. create new database
-6. cp .\.env.example .env
-7. set connection in .env file  like below
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=laravel
-        DB_USERNAME=root
-        DB_PASSWORD=
-8. php artisan migrate
-9. php artiosan serve or run on any virtual host
+About : Notification pannel is developed on laravel with Mysql, here we can manage User and Notification. we can send notification manuualy to single user or groups of user , a mobile verification api implemneted to check the valid number,
 
-10. Here used the css and js external url for design and js purpose we can optimize that all via using npm but its create conflict that's why external url used here 
+
+## Lib
+
+-   Laravel 8.x
+    -- Mysql
+
+# Installation
+
+## Step 1
+
+1. Run git clone https://github.com/pandeymohit6/notification-app Notification-panel
+2. From the projects root run `cp .env.example .env`
+3. Configure your `.env` file
+4. Configure the database for the project
+5. From the projects root folder run `composer Install`
+6. From the projects root folder run `php artisan key:generate`
+7. From the projects root folder run `php artisan migrate`
+8. From the projects root folder run `php artisan db:seed`
+9. From the projects root folder run `composer dump-autoload`
+
+### Folder Ownership and Permission
+
+1. Check the permissions on the storage directory: `chmod -R 775 storage`
+
+### Seeds
+
+##### Seeded User
+
+-   php artisan db:seed
