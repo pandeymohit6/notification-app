@@ -1,6 +1,6 @@
 some points here to run this project on local
 
-1. clone the Repo
+1. clone the Repo or download zip
 2. composer install
 3. npm i
 4. npm run dev
@@ -15,3 +15,5 @@ some points here to run this project on local
         DB_PASSWORD=
 8. php artisan migrate
 9. php artiosan serve or run on any virtual host
+
+10. Here used the css and js external url for design and js purpose we can optimize that all via using npm but its create conflict that's why external url used here 

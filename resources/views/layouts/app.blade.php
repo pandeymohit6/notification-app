@@ -130,6 +130,23 @@
         $(function() {
             $(".table").dataTable();
         })
+
+        function callMobileApi() {
+            const inputString = $("#phone").prop('value'); //for api url not using contant but we can use
+            fetch('https://phonevalidation.abstractapi.com/v1/?api_key=78200083dce04b978aa43aad0b435b0c&phone=' + inputString, {
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    }
+                })
+                .then(res => res.json())
+                .then(response => {
+                    $('.verify').text((response.valid == true) ? 'Valid Number' : 'Invalid Number');
+                })
+                .catch(err => {
+                    console.log("u")
+                    alert("sorry, there are no results for your search")
+                });
+        }
     </script>
 </body>
 
