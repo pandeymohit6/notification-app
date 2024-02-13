@@ -37,7 +37,8 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Phone:</strong>
-                                <input type="text" name="phone" value="{{ $user->phone }}" class="form-control">
+                                <input onblur="callMobileApi(this.input)" type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-control">
+                                <span class="verify"></span>
                                 @error('phone')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
