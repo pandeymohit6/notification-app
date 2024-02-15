@@ -1,4 +1,4 @@
-## Livewire Admin Panel
+## Notification Panel
 
 About : Notification pannel is developed on laravel with Mysql, here we can manage User and Notification. we can send notification manuualy to single user or groups of user , a mobile verification api implemneted to check the valid number,
 
